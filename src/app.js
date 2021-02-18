@@ -1,7 +1,7 @@
-import StyleCreator from '@/StyleCreator'
-import WeatherModel from '@/WeatherModel'
+import StyleCreator from './modules/StyleCreator'
+import WeatherModel from './modules/WeatherModel'
 
-class WeatherWidget {
+export default class WeatherWidget {
 	constructor(stylized) {
 		this.stylized = stylized === true ? true : false
 		this.api = 'api.openweathermap.org/data/2.5'
@@ -48,5 +48,3 @@ class WeatherWidget {
 		new this.model(this.createQueryString(),this.el).fetchData()
 	}
 }
-
-export default WeatherWidget
