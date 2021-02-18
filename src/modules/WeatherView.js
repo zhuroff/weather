@@ -5,7 +5,6 @@ class WeatherView {
 	}
 
 	init() {
-		console.log(this.data)
 		if (this.data.error_message) {
 			return this.errorRenderHandler()
 		}

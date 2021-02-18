@@ -9,8 +9,7 @@ module.exports = {
 	entry: './app.js',
 
 	output: {
-		libraryTarget: 'var',
-		library: 'Weather',
+		library: 'WeatherWidget',
 		filename: 'weather.widget.js',
 		path: PATH.resolve(__dirname, 'dist')
 	},
