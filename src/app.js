@@ -1,14 +1,19 @@
 import StyleCreator from './modules/StyleCreator'
-import WeatherModel from './modules/WeatherModel'
+
+import EventHandler from './modules/EventHandler'
+import WeatherData from './modules/WeatherData'
 
 class WeatherWidget {
-	constructor(stylized) {
-		this.stylized = stylized === true ? true : false
-		this.api = 'api.openweathermap.org/data/2.5'
-		this.lang = 'en'
-		this.api_key = '0a13228fcfc0cfe9d21ea6d97a99c7fe'
-		this.styles = StyleCreator
-		this.model = WeatherModel
+	constructor(props) {
+		this.data = new WeatherData()
+		// this.styles = StyleCreator // BAD
+		// this.model = WeatherModel // BAD
+		// this.evt = EventHandler // BAD
+		this.styles = props.stylized
+	}
+
+	mount() {
+		this.data.call()
 	}
 
 	init() {
@@ -17,6 +22,8 @@ class WeatherWidget {
 		if (this.stylized) {
 			new this.styles().init()
 		}
+
+		new this.evt().on()
 	}
 
 	createQueryString() {

@@ -1,5 +1,6 @@
 import babel from '@rollup/plugin-babel'
 import serve from 'rollup-plugin-serve'
+import livereload from 'rollup-plugin-livereload'
 
 const babel_options = {
 	babelHelpers: 'bundled',
@@ -17,11 +18,13 @@ export default {
 	input: 'src/app.js',
 
 	output: {
-		file: 'dist/weather.widget.js'
+		file: 'dist/weather.widget.js',
+		format: 'es'
 	},
 
 	plugins: [
 		babel(babel_options),
-		serve(serve_options)
+		serve(serve_options),
+		livereload()
 	]
 }
